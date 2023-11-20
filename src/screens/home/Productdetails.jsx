@@ -6,7 +6,7 @@ import { useCart } from "react-use-cart";
 function Productdetails() {
     const { productId } = useParams()
     const thisproduct = productsdata.find(prod => prod.id == productId)
-    const {addItem, inCart}=useCart()
+    const { addItem, inCart } = useCart()
     return (
         <>
 
@@ -39,15 +39,9 @@ function Productdetails() {
                     <br />
                     <span>Choose any color:</span>
                     <div className="color-option">
-                        <div className="red">
-                            <input data-image="red" placeholder="red" type="radio" name="color" value="red" checked />
-                        </div>
-                        <div className="blue">
-                            <input data-image="blue" placeholder="blue" type="radio" name="color" value="blue" checked />
-                        </div>
-                        <div className="black">
-                            <input data-image="black" placeholder="black" type="radio" name="color" value="black" checked />
-                        </div>
+                        <button className="circle red"> red </button>
+                        <button className=" circle blue"> blue </button>
+                        <button className=" circle black"> black </button>
                     </div>
                     <br />
                     <br />
