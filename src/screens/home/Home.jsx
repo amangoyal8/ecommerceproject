@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../otherdata/Header";
 import { Homedatafirst } from "./Homedatafirst";
 import { Homecategory } from "./Homecategory";
@@ -10,12 +10,16 @@ import { Deal } from "./Deal";
 
 function Home()
 {
+    const [value,setvalue]=useState();
+    const getvalue=(dda)=>{
+        setvalue(dda)
+    }
     return(
         <>
-        <Header />
+        <Header send={getvalue}/>
         <Homedatafirst/>
         <Homecategory/>
-        <Popularhome/>
+        <Popularhome inputvalue={value}/>
         <Bestsales/>
         <Deal/>
         <Footer/>

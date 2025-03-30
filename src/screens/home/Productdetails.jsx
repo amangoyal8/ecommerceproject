@@ -15,7 +15,7 @@ function Productdetails() {
                     <img src={logo} alt="logoimage" />
                 </div>
                 <div className="details-header-right">
-                    <Link to="/home"> <button> Click here for more shopping..</button> </Link>
+                    <Link to="/"> <button> Click here for more shopping..</button> </Link>
                 </div>
             </div>
             <div className="details-main">

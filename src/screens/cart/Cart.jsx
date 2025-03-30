@@ -13,17 +13,16 @@ function Cart() {
         isEmpty
     } = useCart()
 
-    if(isEmpty)
-    {
-        return(
+    if (isEmpty) {
+        return (
             <>
-            <div className="empty-cart">
-            <h1 align="center">Your cart is empty....</h1>
-            <img  src={emptyimg} alt="image"/>
-            </div>
-            <div className="empty-text">
-                <h3><Link to="/home">click here</Link> to add items in cart</h3>
-            </div>
+                <div className="empty-cart">
+                    <h1 align="center">Your cart is empty....</h1>
+                    <img src={emptyimg} alt="image" />
+                </div>
+                <div className="empty-text">
+                    <h3><Link to="/">click here</Link> to add items in cart</h3>
+                </div>
             </>
         )
     }

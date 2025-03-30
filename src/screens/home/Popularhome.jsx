@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { productsdata } from "../../Data";
 import { useCart } from "react-use-cart";
-function Popularhome() {
+import { useEffect, useState } from "react";
+import React from "react";
+function Popularhome(props) {
     const popularlist = [
         {
             name: "All",
@@ -33,6 +35,29 @@ function Popularhome() {
         }
     ]
     const { addItem, inCart } = useCart()
+    const [filteritem, setfilteritem] = useState([...productsdata])
+    const chnageitem = (e) => {
+        const getvalue = e;
+        const updatevalue = filteritem.filter((updateitems) => updateitems.name.toLowerCase().startsWith(getvalue))
+        if (getvalue) {
+            setfilteritem(updatevalue)
+        } else {
+            setfilteritem(productsdata)
+        }
+        
+    }
+
+    useEffect(() => {
+        if (props.inputvalue !== '') {
+            chnageitem(props.inputvalue)
+        }
+        else if (props.inputvalue === 0) {
+            setfilteritem(productsdata)
+        }
+        else {
+            setfilteritem(productsdata)
+        } 
+    },[props.inputvalue])
     return (
         <>
             <div className="popular-main">
@@ -54,7 +79,7 @@ function Popularhome() {
             <div className="popular-products">
                
                 {
-                    productsdata.map((items) => {
+                    filteritem.map((items) => {
                         return (
                             <>
 

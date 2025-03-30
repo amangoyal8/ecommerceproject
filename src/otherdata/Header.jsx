@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import limg from "../images/logo.svg";
 import { Headerdata } from "../Data"
 import { Link } from "react-router-dom";
 
 
 
-function Header() {
+function Header(props) {
+    const [search, setsearch] = useState(null)
+    const changevalue = (e) => {
+        setsearch(e.target.value)
+        props.send(e.target.value)
+    }
     return (
         <>
             <div className="main-h">
@@ -15,7 +20,7 @@ function Header() {
                         <div className="search">
                             <form className="form">
                                 <h4 className="cat">All categories</h4>
-                                <input id="col-1" type="text" placeholder="search for items..." />
+                                <input id="col-1" type="text" onChange={changevalue} placeholder="search for items..." />
                                 <button>search</button>
                             </form>
                         </div>
